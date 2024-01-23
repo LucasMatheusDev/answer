@@ -122,3 +122,17 @@ class MyError extends AnswerFailure {
     );
   }
 ```
+
+## You also can use AnswerDefault to simplify your code
+You can also use *TypeDef* [AnswerDefault] simplifying the parameters, it by default returns [AnswerFailure] and you just need to pass the success object
+
+```dart
+   Future<AnswerDefault<String>> getUserId() async {
+    try {
+        final result = await loginDatasource.getUserId();
+        return Answer.success(result);
+    } catch (e) {
+        return Answer.fail(e);
+    }
+  }
+```
