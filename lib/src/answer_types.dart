@@ -12,4 +12,4 @@ class Failure<F, S> extends Answer<F, S> {
   Failure(this.failure);
 }
 
-typedef AnswerDefault<S> = Answer<AnswerError, S>;
+typedef AnswerDefault<S> = Answer<AnswerFailure, S>;

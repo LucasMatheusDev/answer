@@ -20,7 +20,7 @@ import 'package:answer/answer.dart';
 #  How add Answer return in your code
 
 ```dart
-   Future<Answer<AnswerError, String>> getUserId() async {
+   Future<Answer<AnswerFailure, String>> getUserId() async {
     try {
         final result = await loginDatasource.getUserId();
         return Answer.success(result);
@@ -33,7 +33,7 @@ import 'package:answer/answer.dart';
 ## With extension Answer
     
 ```dart
-    Future<Answer<AnswerError, String>> getUserId() async {
+    Future<Answer<AnswerFailure, String>> getUserId() async {
         try {
             final result = await loginDatasource.getUserId();
             return result.asAnswer();
@@ -76,13 +76,13 @@ import 'package:answer/answer.dart';
   }
 ```
 
-# Recommended you use AnswerError
-AnswerError class for Standardize your errors return
+# Recommended you use AnswerFailure
+We recommend that you use the class [Answer Failure] as the default response for [Failure], this guarantees that your returns will always have a pattern, if you need a specific error, create a new error extending the class [Answer Failure]
 
-## Create your Specific from AnswerError
+## Create your Specific from AnswerFailure
 
 ```dart
-class MyError extends AnswerError {
+class MyError extends AnswerFailure {
   MyError() : super(
           message: 'MyError',
           code: 1,
@@ -93,7 +93,7 @@ class MyError extends AnswerError {
 ##  How add Answer return in your code
 
 ```dart
-   Future<Answer<AnswerError, String>> getUserId() async {
+   Future<Answer<AnswerFailure, String>> getUserId() async {
     try {
         final result = await loginDatasource.getUserId();
         return Answer.success(result);
@@ -103,7 +103,7 @@ class MyError extends AnswerError {
   }
 ```
 
-## Handler your custom AnswerError
+## Handler your custom AnswerFailure
 
 ```dart
   Future<void> login() async {

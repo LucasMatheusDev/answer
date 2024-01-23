@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-abstract class AnswerError implements Exception {
+abstract class AnswerFailure implements Exception {
   final String message;
   final int code;
   final StackTrace? stackTrace;
   final Object? error;
 
-  AnswerError({
+  AnswerFailure({
     required this.message,
     required this.code,
     this.stackTrace,

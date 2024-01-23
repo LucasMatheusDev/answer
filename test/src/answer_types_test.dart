@@ -8,7 +8,7 @@ abstract class _UseCase {
 
 class MockUserCase extends Mock implements _UseCase {}
 
-class CustomError extends AnswerError {
+class CustomError extends AnswerFailure {
   CustomError()
       : super(
           message: 'message',
