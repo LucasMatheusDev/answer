@@ -77,7 +77,7 @@ import 'package:answer/answer.dart';
 ```
 
 # Recommended you use AnswerFailure
-We recommend that you use the class [Answer Failure] as the default response for [Failure], this guarantees that your returns will always have a pattern, if you need a specific error, create a new error extending the class [Answer Failure]
+We recommend that you use the class *AnswerFailure* as the default response for *Failure*, this guarantees that your returns will always have a pattern, if you need a specific error, create a new error extending the class *Answer Failure*
 
 ## Create your Specific from AnswerFailure
 
@@ -91,6 +91,7 @@ class MyError extends AnswerFailure {
 ```
 
 ##  How add Answer return in your code
+Add *AnswerFailure* as your return in case of errors
 
 ```dart
    Future<Answer<AnswerFailure, String>> getUserId() async {
@@ -124,7 +125,7 @@ class MyError extends AnswerFailure {
 ```
 
 ## You also can use AnswerDefault to simplify your code
-You can also use *TypeDef* [AnswerDefault] simplifying the parameters, it by default returns [AnswerFailure] and you just need to pass the success object
+You can also use *TypeDef* *AnswerDefault* simplifying the parameters, it by default returns *AnswerFailure* and you just need to pass the success object
 
 ```dart
    Future<AnswerDefault<String>> getUserId() async {
@@ -135,4 +136,19 @@ You can also use *TypeDef* [AnswerDefault] simplifying the parameters, it by def
         return Answer.fail(e);
     }
   }
+```
+
+# Recommended on tests
+Some *Mocks* libraries for testing contain import name conflicts, in these cases it is recommended that you import the *Mocks* library with the **Hide Answer** instruction.
+
+## Example
+```dart
+import 'package:answer/answer.dart';
+import 'package:mocktail/mocktail.dart' hide Answer;
+
+void main() {
+  test('test', () {
+      ...
+  });
+}
 ```
