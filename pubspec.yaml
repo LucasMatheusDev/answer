@@ -1,5 +1,5 @@
 name: answer
-description: A package to help you handle returns
+description: The Answer package simplifies the handling of function returns by allowing them to return either a success or an error object. This enhances code readability and makes error handling more structured.
 version: 0.0.1
 homepage: https://github.com/LucasMatheusDev/answer
 
